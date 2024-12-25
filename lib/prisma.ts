@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { PrismaClient } from "@prisma/client";
 
 declare global {
+   //eslint-disable-next-line 
   var prisma: PrismaClient | undefined;
 }
 

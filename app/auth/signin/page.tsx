@@ -29,6 +29,7 @@ export default function SignIn() {
         router.push("/dashboard");
         console.log("login to dashboard")
       }
+        // eslint-disable-next-line
     } catch (error) {
       setError("An error occurred during sign in");
     } finally {

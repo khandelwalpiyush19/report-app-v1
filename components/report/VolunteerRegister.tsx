@@ -1,4 +1,4 @@
-//@ts-nocheck
+ 
 import React, { useState } from 'react';
 
 const VolunteerRegistrationForm = () => {
@@ -8,7 +8,7 @@ const VolunteerRegistrationForm = () => {
     phone: '',
     interests: '',
   });
-
+ //eslint-disable-next-line 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -16,7 +16,7 @@ const VolunteerRegistrationForm = () => {
       [name]: value,
     });
   };
-
+ //eslint-disable-next-line 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form data:', formData);

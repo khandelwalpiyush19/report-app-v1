@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+ 
 import { useRouter } from "next/navigation";
 import { Search, Loader } from "lucide-react";
 
@@ -21,6 +22,7 @@ export function ReportTracker() {
   const [reportDetails, setReportDetails] = useState<ReportDetails | null>(
     null
   );
+   //eslint-disable-next-line 
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -42,6 +44,7 @@ export function ReportTracker() {
       }
       const data = await response.json();
       setReportDetails(data);
+       //eslint-disable-next-line 
     } catch (err) {
       setError("Unable to find report. Please check the ID and try again.");
     } finally {

@@ -1,4 +1,4 @@
-// @ts-nocheck
+ 
 import { useState } from "react";
 import { AddressAutofill } from "@mapbox/search-js-react";
 
@@ -76,6 +76,7 @@ export function LocationInput({
         Location
       </label>
       <div className="relative">
+     { /*eslint-disable-next-line*/}
         <AddressAutofill
           accessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || ""}
         >

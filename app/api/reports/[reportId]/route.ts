@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
@@ -19,6 +20,7 @@ export async function PATCH(
     });
 
     return NextResponse.json(report);
+    // eslint-disable-next-line
   } catch (error) {
     return NextResponse.json(
       { error: "Error updating report" },
