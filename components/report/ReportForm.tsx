@@ -3,7 +3,6 @@
 
 import { useState, useCallback } from "react";
 import { LocationInput } from "./LocationInput";
-import Image from 'next/image';
 import crypto from "crypto";
 
 const REPORT_TYPES = [
@@ -213,7 +212,8 @@ export function ReportForm({ onComplete }: ReportFormProps) {
           {image ? (
             <div className="space-y-4">
               <div className="w-full h-48 relative rounded-lg overflow-hidden">
-                <Image
+              {/* eslint-disable-next-line*/}
+                <img
                   src={image}
                   alt="Preview"
                   className="w-full h-full object-cover"
