@@ -76,7 +76,7 @@ export function LocationInput({
         Location
       </label>
       <div className="relative">
-     { /*eslint-disable-next-line*/}
+    { /*@ts-ignore*/}
         <AddressAutofill
           accessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || ""}
         >

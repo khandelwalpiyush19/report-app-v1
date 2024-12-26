@@ -7,7 +7,7 @@ import prisma from "@/lib/prisma";
 
 const handler = NextAuth({
   // eslint-disable-next-line
-  adapter: PrismaAdapter(prisma) as unknown as import("next-auth/adapters").Adapter,
+  adapter:PrismaAdapter(prisma) as unknown as import("next-auth/adapters").Adapter,
   providers: [
     CredentialsProvider({
       name: "Credentials",
