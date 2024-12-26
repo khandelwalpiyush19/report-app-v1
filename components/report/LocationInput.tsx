@@ -76,7 +76,7 @@ export function LocationInput({
         Location
       </label>
       <div className="relative">
-    { /*@ts-ignore*/}
+    { /*@ts-expect-error*/}
         <AddressAutofill
           accessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || ""}
         >
