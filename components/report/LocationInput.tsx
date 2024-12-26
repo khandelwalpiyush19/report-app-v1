@@ -76,7 +76,7 @@ export function LocationInput({
         Location
       </label>
       <div className="relative">
-    { /*@ts-expect-error*/}
+    { /*@ts-expect-error : This function has a type issue we are intentionally bypassing*/}
         <AddressAutofill
           accessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || ""}
         >
