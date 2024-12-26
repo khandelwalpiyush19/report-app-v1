@@ -6,8 +6,8 @@ import bcrypt from "bcryptjs";
 import prisma from "@/lib/prisma";
 
 const handler = NextAuth({
-  // eslint-disable-next-line
-  adapter:PrismaAdapter(prisma) as unknown as import("next-auth/adapters").Adapter,
+  //@ts-expect-error : This function has a type issue we are intentionally bypassing
+  adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       name: "Credentials",
