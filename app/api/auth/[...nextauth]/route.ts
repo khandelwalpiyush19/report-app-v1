@@ -1,12 +1,12 @@
+ 
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import prisma from "@/lib/prisma";
 
-// Create a handler for NextAuth
 const handler = NextAuth({
-  //@ts-expect-error: Type issue bypassing intentionally.
+  //@ts-expect-error : This function has a type issue we are intentionally bypassing
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
@@ -21,16 +21,22 @@ const handler = NextAuth({
         }
 
         const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
+          where: {
+            email: credentials.email,
+          },
         });
 
         if (!user) {
-          return null; // Indicates invalid credentials
+          throw new Error("No user found with this email");
         }
 
-        const passwordMatch = await bcrypt.compare(credentials.password, user.password);
+        const passwordMatch = await bcrypt.compare(
+          credentials.password,
+          user.password
+        );
+
         if (!passwordMatch) {
-          return null; // Indicates invalid credentials
+          throw new Error("Incorrect password");
         }
 
         return {
@@ -57,12 +63,11 @@ const handler = NextAuth({
     },
   },
   pages: {
-    signIn: "/auth/signin", // Ensure you have this custom sign-in page.
+    signIn: "/auth/signin",
   },
   session: {
     strategy: "jwt",
   },
 });
 
-// Export handler for Next.js API routes.
 export { handler as GET, handler as POST };
